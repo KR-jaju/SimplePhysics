@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     entt::registry registry;
-    PhysicsSystem  physicsSystem;
+    PhysicsSystem  physicsSystem(registry);
 
     entt::entity e = registry.create();
 

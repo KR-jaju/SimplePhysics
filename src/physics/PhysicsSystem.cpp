@@ -4,6 +4,11 @@
 #include "entt.hpp"
 #include "component/transform.h"
 
+PhysicsSystem::PhysicsSystem(entt::registry &registry)
+{
+    registry.emplace<PhysicsSystem::Context>({});
+}
+
 void PhysicsSystem::update(entt::registry &registry, float dt)
 {
     constexpr int substeps = 4;
@@ -16,8 +21,10 @@ void PhysicsSystem::update(entt::registry &registry, float dt)
 
 void PhysicsSystem::step(entt::registry &registry, float dt)
 {
+    PhysicsSystem::Context &ctx = registry.ctx().get<PhysicsSystem::Context>();
+
     this->broadPhase(registry);
-    this->narrowPhase(registry);
+    this->narrowPhase(ctx);
     this->solve(registry);
     this->integrate(registry, dt);
 }
@@ -31,12 +38,17 @@ void PhysicsSystem::broadPhase(entt::registry &registry)
     }
 }
 
-void PhysicsSystem::narrowPhase(entt::registry &registry)
+void PhysicsSystem::narrowPhase(Context &context)
 {
-    for (auto &pair : this->context.candidates)
+    std::vector<math::vec3> polytope;
+
+    for (auto &pair : context.candidates)
     {
-        std::cout << "Narrow phase for entities: " << int(pair.entityA) << " and "
-                  << int(pair.entityB) << std::endl;
+        polytope.clear();
+        if (this->gjk(pair, polytope))
+            continue;
+        context.keys.push_back(pair);
+        context.contacts.push_back(this->epa(pair, polytope));
     }
     // gjk
     // epa
@@ -56,4 +68,17 @@ void PhysicsSystem::integrate(entt::registry &registry, float dt)
     {
         t.position += t.velocity * dt;
     }
+}
+
+bool PhysicsSystem::gjk(const collision_pair &pair, std::vector<math::vec3> &simplex)
+{
+    simplex.clear();
+    // gjk algorithm implementation
+    return false;
+}
+
+contact_info PhysicsSystem::epa(const collision_pair &pair, std::vector<math::vec3> &polytope)
+{
+    // epa algorithm implementation
+    return {};
 }
