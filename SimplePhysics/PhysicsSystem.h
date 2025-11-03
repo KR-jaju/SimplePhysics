@@ -12,7 +12,7 @@ public:
     void update(entt::registry& registry, float dt);
 
 private:
-    struct Context
+    struct context
     {
         std::vector<collision_pair> candidates;
         std::vector<collision_pair> keys;
@@ -21,7 +21,7 @@ private:
 
     void step(entt::registry& registry, float dt);
     void broadPhase(entt::registry& registry);
-    void narrowPhase(Context& context);
+    void narrowPhase(context& context);
     void solve(entt::registry& registry);
     void integrate(entt::registry& registry, float dt);
 
