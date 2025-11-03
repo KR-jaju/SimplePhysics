@@ -6,7 +6,7 @@
 
 PhysicsSystem::PhysicsSystem(entt::registry& registry)
 {
-    registry.ctx().emplace<PhysicsSystem::Context>();
+    registry.ctx().emplace<PhysicsSystem::context>();
 }
 
 void PhysicsSystem::update(entt::registry& registry, float dt)
@@ -21,7 +21,7 @@ void PhysicsSystem::update(entt::registry& registry, float dt)
 
 void PhysicsSystem::step(entt::registry& registry, float dt)
 {
-    PhysicsSystem::Context& ctx = registry.ctx().get<PhysicsSystem::Context>();
+    PhysicsSystem::context& ctx = registry.ctx().get<PhysicsSystem::context>();
 
     this->broadPhase(registry);
     this->narrowPhase(ctx);
@@ -38,7 +38,7 @@ void PhysicsSystem::broadPhase(entt::registry& registry)
     }
 }
 
-void PhysicsSystem::narrowPhase(Context& context)
+void PhysicsSystem::narrowPhase(context& context)
 {
     std::vector<math::vec3> polytope;
 
