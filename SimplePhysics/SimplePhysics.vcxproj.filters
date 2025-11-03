@@ -13,5 +13,48 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\entt">
+      <UniqueIdentifier>{58779e8a-1dc2-41ca-9001-5fe8e4d19848}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\physics">
+      <UniqueIdentifier>{d87a4f60-fe7e-4f69-83ee-d2ff99c613c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\math">
+      <UniqueIdentifier>{16ab00c7-39e0-4ead-986b-1e2987a19f7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\geometry">
+      <UniqueIdentifier>{64acfb34-79f5-4e72-8ce0-6186caecf59f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\component">
+      <UniqueIdentifier>{990c8e2b-43e0-4efa-bf28-5061685b2070}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="entt.hpp">
+      <Filter>헤더 파일\entt</Filter>
+    </ClInclude>
+    <ClInclude Include="vec.h">
+      <Filter>헤더 파일\math</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>헤더 파일\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>헤더 파일\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Convex.h">
+      <Filter>헤더 파일\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="transform.h">
+      <Filter>헤더 파일\component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystems.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
