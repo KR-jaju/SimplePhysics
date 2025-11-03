@@ -3,6 +3,7 @@
 
 RenderSystem::RenderSystem(entt::registry& registry, Swapchain* swapchain)
 {
+	assert(swapchain != nullptr);
 	registry.ctx().emplace<RenderSystem::context>(context {.swapchain = swapchain});
 
 }
