@@ -1,2 +1,0 @@
-# SimplePhysics
-simple physics
