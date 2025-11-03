@@ -28,6 +28,12 @@
     <Filter Include="헤더 파일\component">
       <UniqueIdentifier>{990c8e2b-43e0-4efa-bf28-5061685b2070}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\window">
+      <UniqueIdentifier>{dec80e6a-0452-4c56-9150-062e3574fb6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\render">
+      <UniqueIdentifier>{a2f7f208-dd5f-4f5f-ba9b-7431b49cf5c6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entt.hpp">
@@ -48,12 +54,24 @@
     <ClInclude Include="transform.h">
       <Filter>헤더 파일\component</Filter>
     </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>헤더 파일\window</Filter>
+    </ClInclude>
+    <ClInclude Include="Swapchain.h">
+      <Filter>헤더 파일\render</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>헤더 파일\render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="PhysicsSystems.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -143,13 +143,17 @@
     <ClInclude Include="Convex.h" />
     <ClInclude Include="entt.hpp" />
     <ClInclude Include="PhysicsSystem.h" />
+    <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="Swapchain.h" />
     <ClInclude Include="transform.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="vec.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysicsSystems.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
