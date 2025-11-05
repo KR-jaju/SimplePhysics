@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -117,6 +117,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,20 +141,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Convex.h" />
-    <ClInclude Include="entt.hpp" />
-    <ClInclude Include="PhysicsSystem.h" />
-    <ClInclude Include="RenderSystem.h" />
-    <ClInclude Include="Swapchain.h" />
-    <ClInclude Include="transform.h" />
-    <ClInclude Include="types.h" />
-    <ClInclude Include="vec.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="include\component\transform.h" />
+    <ClInclude Include="include\entt\entt.hpp" />
+    <ClInclude Include="include\math\vec.h" />
+    <ClInclude Include="include\physics\Convex.h" />
+    <ClInclude Include="include\physics\PhysicsSystem.h" />
+    <ClInclude Include="include\physics\types.h" />
+    <ClInclude Include="include\render\RenderSystem.h" />
+    <ClInclude Include="include\render\Swapchain.h" />
+    <ClInclude Include="include\render\types.h" />
+    <ClInclude Include="include\window\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="PhysicsSystems.cpp" />
-    <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\physics\PhysicsSystem.cpp" />
+    <ClCompile Include="src\render\RenderSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

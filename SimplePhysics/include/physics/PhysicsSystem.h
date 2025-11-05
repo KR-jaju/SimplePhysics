@@ -2,8 +2,8 @@
 
 #include <optional>
 #include "types.h"
-#include "entt.hpp"
-#include "vec.h"
+#include "entt/entt.hpp"
+#include "math/vec.h"
 
 class PhysicsSystem
 {

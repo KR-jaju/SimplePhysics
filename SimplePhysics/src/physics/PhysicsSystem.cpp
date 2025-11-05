@@ -1,8 +1,8 @@
-#include "PhysicsSystem.h"
+#include "physics/PhysicsSystem.h"
 
 #include <iostream>
-#include "entt.hpp"
-#include "transform.h"
+#include "entt/entt.hpp"
+#include "component/transform.h"
 
 PhysicsSystem::PhysicsSystem(entt::registry& registry)
 {

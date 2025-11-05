@@ -1,5 +1,5 @@
-#include "RenderSystem.h"
-#include "Swapchain.h"
+#include "render/RenderSystem.h"
+#include "render/Swapchain.h"
 
 RenderSystem::RenderSystem(entt::registry& registry, Swapchain* swapchain)
 {

@@ -36,42 +36,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="entt.hpp">
-      <Filter>헤더 파일\entt</Filter>
-    </ClInclude>
-    <ClInclude Include="vec.h">
-      <Filter>헤더 파일\math</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsSystem.h">
-      <Filter>헤더 파일\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="types.h">
-      <Filter>헤더 파일\physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Convex.h">
-      <Filter>헤더 파일\geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="transform.h">
-      <Filter>헤더 파일\component</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="include\window\Window.h">
       <Filter>헤더 파일\window</Filter>
     </ClInclude>
-    <ClInclude Include="Swapchain.h">
-      <Filter>헤더 파일\render</Filter>
+    <ClInclude Include="include\physics\types.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="RenderSystem.h">
-      <Filter>헤더 파일\render</Filter>
+    <ClInclude Include="include\physics\Convex.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\physics\PhysicsSystem.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\math\vec.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\component\transform.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\types.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\RenderSystem.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\render\Swapchain.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="include\entt\entt.hpp">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\physics\PhysicsSystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsSystems.cpp">
+    <ClCompile Include="src\render\RenderSystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="RenderSystem.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,10 +1,11 @@
 #include <iostream>
 #include <Windows.h>
-#include "PhysicsSystem.h"
-#include "RenderSystem.h"
-#include "transform.h"
-#include "Window.h"
-#include "Swapchain.h"
+#include "physics/PhysicsSystem.h"
+#include "render/RenderSystem.h"
+#include "component/transform.h"
+#include "window/Window.h"
+#include "render/Swapchain.h"
+#include "entt/entt.hpp"
 
 using namespace std;
 
