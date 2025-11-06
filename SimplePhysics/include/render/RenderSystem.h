@@ -12,5 +12,8 @@ private:
 	struct context
 	{
 		Swapchain* swapchain;
+		ComPtr<ID3D11InputLayout> shapeIL;
+		ComPtr<ID3D11VertexShader> shapeVS;
+		ComPtr<ID3D11PixelShader> shapePS;
 	};
 };

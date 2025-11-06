@@ -1,25 +1,5 @@
 #pragma once
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-#ifndef NOMINMAX
-#define NOMINMAX
-#endif
 
-#include <windows.h>
-#include <d3d11.h>
-#include <dxgi.h>
-#include <wrl/client.h>
-#include <cassert>
-
-#pragma comment(lib, "d3d11.lib")
-#pragma comment(lib, "dxgi.lib")
-
-using Microsoft::WRL::ComPtr;
-
-// 간단한 DX11 디바이스 + 스왑체인 래퍼
-// - D3D11CreateDeviceAndSwapChain() 경로만 사용 (DXGI 1.0 호환)
-// - Flip Model 등은 쓰지 않고, DISCARD 스왑 이펙트로 최소화
 class Swapchain {
 public:
     struct Desc {
@@ -34,7 +14,9 @@ public:
         bool        debug = false;
 #endif
     };
-
+    Swapchain(HWND hwnd, const Desc& d = {}) {
+        this->init(hwnd, d);
+    }
     void init(HWND hwnd, const Desc& d = {}) {
         hwnd_ = hwnd; desc_ = d;
         createDeviceAndSwapchain();
@@ -71,11 +53,11 @@ public:
     void present() { swap_->Present(desc_.vsync ? 1 : 0, 0); }
 
     // Accessors
-    ID3D11Device* device()  const { return device_.Get(); }
-    ID3D11DeviceContext* context() const { return context_.Get(); }
-    IDXGISwapChain* swapchain() const { return swap_.Get(); }
-    ID3D11RenderTargetView* rtv() const { return rtv_.Get(); }
-    ID3D11DepthStencilView* dsv() const { return dsv_.Get(); }
+    ComPtr<ID3D11Device> device()  const { return device_; }
+    ComPtr<ID3D11DeviceContext> context() const { return context_; }
+    ComPtr<IDXGISwapChain> swapchain() const { return swap_; }
+    ComPtr<ID3D11RenderTargetView> rtv() const { return rtv_; }
+    ComPtr<ID3D11DepthStencilView> dsv() const { return dsv_; }
 
 private:
     void createDeviceAndSwapchain() {

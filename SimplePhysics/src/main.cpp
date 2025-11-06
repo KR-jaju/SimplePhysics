@@ -1,3 +1,4 @@
+#include "pch.h"
 #include <iostream>
 #include <Windows.h>
 #include "physics/PhysicsSystem.h"
@@ -6,22 +7,21 @@
 #include "window/Window.h"
 #include "render/Swapchain.h"
 #include "entt/entt.hpp"
+#include "core/ShapeRegistry.h"
 
 using namespace std;
 
 int main()
 {
     Window window(L"Hello Window", 1280, 720);
-    Swapchain swapchain;
+    Swapchain swapchain(window.hwnd(), { .width = window.width(), .height = window.height(), .vsync = true });
     entt::registry registry;
+    ShapeRegistry   shapeRegistry = registry.ctx().emplace<ShapeRegistry>(swapchain.device());
     PhysicsSystem  physicsSystem(registry);
     RenderSystem   renderSystem(registry, &swapchain);
 
     entt::entity e = registry.create();
-
-    swapchain.init(window.hwnd(), { .width = window.width(), .height = window.height(), .vsync = true });
     registry.emplace<::transform>(e);
-    physicsSystem.update(registry, 0.016f);
 
     window.onKeyDown = [](UINT vk) { if (vk == VK_ESCAPE) PostQuitMessage(0); };
 

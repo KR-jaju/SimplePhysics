@@ -118,6 +118,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,21 +143,46 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\component\renderable.h" />
+    <ClInclude Include="include\component\renderer.h" />
     <ClInclude Include="include\component\transform.h" />
     <ClInclude Include="include\entt\entt.hpp" />
     <ClInclude Include="include\math\vec.h" />
+    <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\physics\Convex.h" />
     <ClInclude Include="include\physics\PhysicsSystem.h" />
     <ClInclude Include="include\physics\types.h" />
+    <ClInclude Include="include\render\Shape.h" />
     <ClInclude Include="include\render\RenderSystem.h" />
+    <ClInclude Include="include\core\ShapeRegistry.h" />
     <ClInclude Include="include\render\Swapchain.h" />
     <ClInclude Include="include\render\types.h" />
     <ClInclude Include="include\window\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\physics\PhysicsSystem.cpp" />
     <ClCompile Include="src\render\RenderSystem.cpp" />
+    <ClCompile Include="src\render\Shape.cpp" />
+    <ClCompile Include="src\core\ShapeRegistry.cpp" />
+    <ClCompile Include="src\render\Swapchain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders\shapePS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="shaders\shapeVS.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
