@@ -1,11 +1,11 @@
 #pragma once
 
-#include "math/vec.h"
-
 struct transform
 {
-    math::vec3 position;
-    math::vec3 rotation;
-    math::vec3 scale;
-    math::vec3 velocity;
+    XMFLOAT3 position = {0, 0, 0};
+    XMFLOAT4 rotation = { 0, 0, 0, 1 };
+    XMFLOAT3 scale = { 1, 1, 1 };
+    XMFLOAT3 velocity = { 0, 0, 0 };
+    XMFLOAT4X4 m;
+    XMFLOAT4X4 mInv;
 };

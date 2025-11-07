@@ -1,8 +1,8 @@
 #pragma once
 
-class Shape;
+#include "core/ShapeRegistry.h"
 
 struct renderable
 {
-	Shape* shape;
+	ShapeRegistry::Handle shape;
 };

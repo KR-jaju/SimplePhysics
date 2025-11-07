@@ -1,15 +1,22 @@
 #pragma once
 
-#include <list>
+#include <vector>
 #include "render/Shape.h"
 
 class ShapeRegistry
 {
 public:
+	using Handle = int;
 	ShapeRegistry(const ComPtr<ID3D11Device>& device);
-	Shape* loadShape(const char* path);
-	Shape*	registerShape(std::vector<XMFLOAT3> positions, std::vector<int> indices);
+	Handle loadShape(const char* path);
+	Handle	registerShape(std::vector<XMFLOAT3> positions, std::vector<int> indices);
+	Handle	icosahedron();
+
+	Shape& getShape(int handle);
 private:
 	ComPtr<ID3D11Device> device;
-	std::list<Shape>	shapes;
+	std::vector<Shape>	shapes;
+	Handle	icosahedronHandle;
+
+	void	registerIcosahedron();
 };

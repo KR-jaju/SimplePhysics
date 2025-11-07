@@ -28,10 +28,19 @@ Shape::Shape(ComPtr<ID3D11Device> device, std::vector<XMFLOAT3> positions, std::
     initData.pSysMem = indices.data();
     hr = device->CreateBuffer(&desc, &initData, indexBuffer.GetAddressOf());
     assert(SUCCEEDED(hr));
+    this->positionBuffer = std::move(positionBuffer);
+    this->indexBuffer = std::move(indexBuffer);
 }
+#include <iostream>
 
-
-void	Shape::draw(ComPtr<ID3D11DeviceContext> ctx)
+void	Shape::draw(ComPtr<ID3D11DeviceContext> dc)
 {
+    const UINT strides[] = { sizeof(XMFLOAT3) };
+    const UINT offsets[] = { 0 };
 
+    dc->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+    dc->IASetVertexBuffers(0, 1, this->positionBuffer.GetAddressOf(), strides, offsets);
+    dc->IASetIndexBuffer(this->indexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
+    dc->DrawIndexed(this->indices.size(), 0, 0);
 }
+

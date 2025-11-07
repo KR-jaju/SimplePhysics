@@ -34,7 +34,7 @@ void PhysicsSystem::broadPhase(entt::registry& registry)
     auto view = registry.view<transform>();
     for (auto [e, t] : view.each())
     {
-        std::cout << sizeof(e) << ": " << t.position.x << std::endl;
+        //std::cout << sizeof(e) << ": " << t.position.x << std::endl;
     }
 }
 
@@ -66,7 +66,11 @@ void PhysicsSystem::integrate(entt::registry& registry, float dt)
     auto view = registry.view<transform>();
     for (auto [e, t] : view.each())
     {
-        t.position += t.velocity * dt;
+        XMVECTOR position = XMLoadFloat3(&t.position);
+        XMVECTOR rotation = XMLoadFloat4(&t.rotation);
+        XMVECTOR velocity = XMLoadFloat3(&t.velocity);
+
+        XMVectorAdd(position, XMVectorScale(velocity, dt));
     }
 }
 

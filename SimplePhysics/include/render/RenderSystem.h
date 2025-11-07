@@ -15,5 +15,7 @@ private:
 		ComPtr<ID3D11InputLayout> shapeIL;
 		ComPtr<ID3D11VertexShader> shapeVS;
 		ComPtr<ID3D11PixelShader> shapePS;
+		ComPtr<ID3D11Buffer>	perRendererCB;
+		ComPtr<ID3D11Buffer>	perRenderableCB;
 	};
 };

@@ -125,6 +125,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <FxCompile>
+      <ShaderModel>5.0</ShaderModel>
+    </FxCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -157,6 +160,7 @@
     <ClInclude Include="include\core\ShapeRegistry.h" />
     <ClInclude Include="include\render\Swapchain.h" />
     <ClInclude Include="include\render\types.h" />
+    <ClInclude Include="include\transform\TransformSystem.h" />
     <ClInclude Include="include\window\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +173,7 @@
     <ClCompile Include="src\render\Shape.cpp" />
     <ClCompile Include="src\core\ShapeRegistry.cpp" />
     <ClCompile Include="src\render\Swapchain.cpp" />
+    <ClCompile Include="src\transform\TransformSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\shapePS.hlsl">

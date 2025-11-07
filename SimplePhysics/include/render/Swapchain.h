@@ -58,6 +58,7 @@ public:
     ComPtr<IDXGISwapChain> swapchain() const { return swap_; }
     ComPtr<ID3D11RenderTargetView> rtv() const { return rtv_; }
     ComPtr<ID3D11DepthStencilView> dsv() const { return dsv_; }
+    float   aspectRatio() const { return static_cast<float>(desc_.width) / desc_.height; }
 
 private:
     void createDeviceAndSwapchain() {
